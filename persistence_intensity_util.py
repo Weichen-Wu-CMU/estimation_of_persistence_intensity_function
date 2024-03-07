@@ -72,3 +72,11 @@ def kernel_betti_number(dgm_flist:list,
             ker_bettis[j,k] = np.sum(intensity[0:(k+1),k:100])
             
     return ker_bettis
+
+def plot_density(density, xmax, resolution = 100):
+    xx, yy = np.mgrid[0:xmax:complex(0,resolution),0:xmax:complex(0,resolution)]
+    plt.pcolormesh(xx,yy,density,cmap='Blues')
+    plt.colorbar()
+    x = np.arange(0, xmax, xmax/resolution)
+    y = np.arange(0, xmax, xmax/resolution)
+    plt.plot(x,y,'--',color = 'black')
